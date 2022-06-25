@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="749.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" >
+   <children>
+      <Button fx:id="loginButton" contentDisplay="TEXT_ONLY" layoutX="53.0" layoutY="267.0" mnemonicParsing="false" onAction="#loginButton" prefHeight="44.0" prefWidth="258.0" text="LOG IN" textOverrun="CENTER_ELLIPSIS" />
+      <PasswordField fx:id="passwordField" layoutX="53.0" layoutY="215.0" prefHeight="31.0" prefWidth="258.0" />
+      <Label layoutX="53.0" layoutY="188.0" prefHeight="21.0" prefWidth="81.0" text="Password" />
+      <Label layoutX="53.0" layoutY="122.0" prefHeight="21.0" prefWidth="81.0" text="Nickname" />
+      <TextField fx:id="nicknameField" layoutX="53.0" layoutY="150.0" prefHeight="31.0" prefWidth="258.0" />
+      <Label fx:id="errorText" layoutX="92.0" layoutY="381.0" prefHeight="21.0" prefWidth="181.0" textFill="#cd1414" />
+      <Button fx:id="CreateButton" alignment="TOP_CENTER" layoutX="215.0" layoutY="335.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#createAccount" prefHeight="31.0" prefWidth="81.0" style="-fx-background-color: transparent;" text="Create" textFill="#2c19bf" textOverrun="CENTER_ELLIPSIS" underline="true">
+         <font>
+            <Font name="Arial Black" size="15.0" />
+         </font>
+      </Button>
+      <Label layoutX="76.0" layoutY="343.0" text="Do have not an account?" />
+      <AnchorPane layoutX="393.0" layoutY="-10.0" prefHeight="473.0" prefWidth="360.0" style="-fx-background-color: beige;" />
+   </children>
+</AnchorPane>
