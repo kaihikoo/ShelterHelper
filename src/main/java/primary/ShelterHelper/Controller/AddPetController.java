@@ -149,33 +149,6 @@ public class AddPetController extends BaseContoller implements Initializable {
         }
 
 
-/*
-        String name1 = ;
-        System.out.println(name1);
-        String chip1 = chip.getText();
-        System.out.println(chip1);
-
-        int valeuofAge = (int) age.getValue();
-        System.out.println(valeuofAge);
-        String value_id_box = id_box.getText();
-        System.out.println(value_id_box);
-        Color valuecolor = color.getValue();
-        System.out.println(valuecolor);
-        Pet valueofPet=choosePet.getValue();
-        System.out.println(valueofPet);
-        Sex valueofsex=sexPet.getValue();
-        System.out.println(valueofsex);
-        String valueofbread=bread.getValue();
-        System.out.println(valueofbread);
-        LocalDate valueofdate=datePet.getValue();
-        System.out.println(valueofdate);
-
-
-        String addUser = " INSERT INTO shelterhelper.users (Nickname, User_name,User_surname, email,User_password) values (" + "?,?,?,?,?)";
-
-        User user = new User(nicknameSign.getText(), name.getText(), surname.getText(), email.getText(), passwordField.getText());
-        System.out.println(user.toString());
-*/
 
     /**
      *
