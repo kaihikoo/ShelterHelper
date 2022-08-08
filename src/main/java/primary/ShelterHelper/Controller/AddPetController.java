@@ -126,7 +126,7 @@ public class AddPetController extends BaseContoller implements Initializable {
                 break;
             }
             case OTHER_ANIMAL -> {
-                addAnimal = " INSERT INTO shelterhelper.otheranimals (name, chip,age, id_box ,sex,bread,color,date) values (" + "?,?,?,?,?,?,?,?)";
+                addAnimal = " INSERT INTO shelterhelper.other (name, chip,age, id_box ,sex,bread,color,date) values (" + "?,?,?,?,?,?,?,?)";
                 break;
             }
             default -> throw new IllegalStateException("Unexpected value: " + (valueofPet));

@@ -45,12 +45,6 @@ public class MainWindowController extends BaseContoller {
     private CheckBox sortothers;
 
     @FXML
-    private CheckBox sortmale;
-
-    @FXML
-    private CheckBox sortfemale;
-
-    @FXML
    private TableView<Table> tableView;
 
     @FXML
@@ -83,44 +77,26 @@ public class MainWindowController extends BaseContoller {
 
     ObservableList<Table> list= FXCollections.observableArrayList();
 
-    boolean dogsShowed=false;
-    // boolean statusCatsOff;
+    String statementCall=null;
 
     @FXML
     void checkSortAnimals(ActionEvent event) {
+
         DbConnection connection = new DbConnection();
         Connection connectDB = connection.getConnection();
         if (sortdogs.isSelected() == true) {
-            System.out.println(sortdogs.isSelected());
-
-            String showDogstable = "SELECT * FROM shelterhelper.dogs;";
-            String showOtherTable = "SELECT * FROM shelterhelper.others;";
-
-            try {
-                Statement statement = connectDB.createStatement();
-                ResultSet queryResult = statement.executeQuery(showDogstable);
-
-                while (queryResult.next()) {
-                    resultDateBase(queryResult);
-
-                }
-            } catch (SQLException e) {
-                Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, (String) null);
-
-            }
-
-            //  setcellValue();
-            // tableView.setItems(list);
-
-
-        } else if (sortcats.isSelected() == true) {
+            statementCall= "SELECT * FROM shelterhelper.dogs;";
+            System.out.println(sortdogs.isSelected());}
+        if (sortcats.isSelected() == true) {
             System.out.println(sortcats.isSelected());
-            String showCatsTable = "SELECT * FROM shelterhelper.cats;";
-
+             statementCall = "SELECT * FROM shelterhelper.cats;";}
+        if (sortothers.isSelected() == true) {
+            statementCall = "SELECT * FROM shelterhelper.other;";}
             try {
                 Statement statement = connectDB.createStatement();
-                ResultSet queryResult = statement.executeQuery(showCatsTable);
-
+                ResultSet queryResult = statement.executeQuery(statementCall);
+                for (int i = 0; i < tableView.getItems().size(); i++) {
+                    tableView.getItems().clear();}
                 while (queryResult.next()) {
                     resultDateBase(queryResult);
 
@@ -131,16 +107,12 @@ public class MainWindowController extends BaseContoller {
             }
 
 
-        }
-        else if (sortdogs.isSelected() == false && sortcats.isSelected() == false) {
+        if (sortothers.isSelected() == false && sortcats.isSelected() == false && sortdogs.isSelected() == false ) {
             for (int i = 0; i < tableView.getItems().size(); i++) {
-                tableView.getItems().clear();
-            }
-        }
+                tableView.getItems().clear();}}
+
         setcellValue();
         tableView.setItems(list);
-
-        System.out.println(sortcats.getOnAction().toString());
     }
 
 
@@ -158,50 +130,6 @@ public class MainWindowController extends BaseContoller {
             dateView.setCellValueFactory(new PropertyValueFactory<>("dateArrival"));
         }
 
-    @FXML
-    void checkSortCats(ActionEvent event) {
-        if (sortcats.isSelected() == true) {
-            DbConnection connection = new DbConnection();
-            Connection connectDB = connection.getConnection();
-            String showDogstable = "SELECT * FROM shelterhelper.dogs;";
-            String showCatsTable = "SELECT * FROM shelterhelper.cats;";
-            String showOtherTable = "SELECT * FROM shelterhelper.others;";
-
-            try {
-                Statement statement = connectDB.createStatement();
-                ResultSet queryResult = statement.executeQuery(showCatsTable);
-
-                while (queryResult.next()) {
-                    resultDateBase(queryResult);
-
-                }
-            } catch (SQLException e) {
-                Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, (String) null);
-
-            }
-
-            idView.setCellValueFactory(new PropertyValueFactory<>("id"));
-            nameView.setCellValueFactory(new PropertyValueFactory<>("" + "Name"));
-            chipView.setCellValueFactory(new PropertyValueFactory<>("chip"));
-            ageView.setCellValueFactory(new PropertyValueFactory<>("age"));
-            id_boxView.setCellValueFactory(new PropertyValueFactory<>("id_box"));
-            sexView.setCellValueFactory(new PropertyValueFactory<>("sex"));
-            breadView.setCellValueFactory(new PropertyValueFactory<>("bread"));
-            colorView.setCellValueFactory(new PropertyValueFactory<>("color"));
-            dateView.setCellValueFactory(new PropertyValueFactory<>("dateArrival"));
-
-            tableView.setItems(list);
-
-
-
-
-        }
-        else if (sortcats.isSelected()==false){
-            for (int i = 0; i < tableView.getItems().size(); i++) {
-                tableView.getItems().clear();
-            }
-        }
-    }
 
 
 
@@ -219,40 +147,6 @@ public class MainWindowController extends BaseContoller {
                 queryResult.getString("date")));
 
     }
-
-
-    @FXML
-    void sortfemale(ActionEvent event) {
-
-        if(sortfemale.isSelected()==true);
-        {
-            DbConnection connection = new DbConnection();
-            Connection connectDB = connection.getConnection();
-            //String showMale = "SELECT * FROM shelterhelper."+dogs";";
-
-            try {
-                Statement statement = connectDB.createStatement();
-                ResultSet queryResult = statement.executeQuery("s");
-
-                while (queryResult.next()) {
-                    resultDateBase(queryResult);
-
-                }
-            } catch (SQLException e) {
-                Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, (String) null);
-
-            }
-        }
-
-    }
-
-    @FXML
-    void sortmale(ActionEvent event) {
-
-    }
-
-
-
 
 
 
