@@ -1,0 +1,7 @@
+# ShelterHelper is a project created with using Java and Maven. It's deskop app which Gui was made with Scenebuider & javafx.
+The main assumption of the program was to build a program, which would make possible to store information about pets in the shelter. 
+The first stage of application was built to authorize  users only with access to the program and allow create new users.
+Information about created user are store in MySQL database. 
+The next stage allow show animal in TreeView from datebase in MySQl, create new , and sort them  by specific categories.
+
+
